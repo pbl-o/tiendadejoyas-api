@@ -1,4 +1,4 @@
-# Like Me (parte 2)
+# Tienda Joyas API (parte 2)
 
 API REST para gestionar consultas parametrizadas a una base de datos. Permite filtrar, paginar, ordenar resultados y estructurar respuestas bajo el modelo HATEOAS.
 

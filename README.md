@@ -1,4 +1,4 @@
-# Tienda Joyas API (parte 2)
+# Tienda Joyas API 
 
 API REST para gestionar consultas parametrizadas a una base de datos. Permite filtrar, paginar, ordenar resultados y estructurar respuestas bajo el modelo HATEOAS.
 
@@ -13,7 +13,7 @@ Instrucciones des instalación y configuración del proyecto:
 1. Clonar repositorio:
 
 ```bash
-git clone https://github.com/pbl-o/apprepertorio.git
+git clone https://github.com/pbl-o/tiendadejoyas-api.git
 ```
 
 \*Pasos 2 y 5 aplican tanto a la capa cliente como a la capa de negocios (servidor)
@@ -29,17 +29,17 @@ npm install
 
 ```bash
 
-CREATE DATABASE likeme;
-
-DROP TABLE IF EXISTS posts;
-
-CREATE TABLE posts (
-    Id SERIAL PRIMARY KEY,
-    titulo VARCHAR(25),
-    img VARCHAR(1000),
-    descripcion VARCHAR(255),
-    likes INT
-);
+CREATE DATABASE joyas;
+\c joyas;
+CREATE TABLE inventario (id SERIAL, nombre VARCHAR(50), categoria
+VARCHAR(50), metal VARCHAR(50), precio INT, stock INT);
+INSERT INTO inventario values
+(DEFAULT, 'Collar Heart', 'collar', 'oro', 20000 , 2),
+(DEFAULT, 'Collar History', 'collar', 'plata', 15000 , 5),
+(DEFAULT, 'Aros Berry', 'aros', 'oro', 12000 , 10),
+(DEFAULT, 'Aros Hook Blue', 'aros', 'oro', 25000 , 4),
+(DEFAULT, 'Anillo Wish', 'aros', 'plata', 30000 , 4),
+(DEFAULT, 'Anillo Cuarzo Greece', 'anillo', 'oro', 40000 , 2);
 
 ```
 

@@ -11,7 +11,9 @@ const readAllLimit = async (req, res) => {
         .status(404)
         .json({ message: "Requested Element(s) Not Found" });
     }
-    return res.status(200).json(joyas);
+
+    const HATEOAS = await inventarioModel.prepareHATEOAS(joyas)
+    return res.status(200).json(HATEOAS);
   } catch (error) {
     console.error(error);
     if (error.code) {

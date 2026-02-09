@@ -72,3 +72,16 @@ Request received: GET /joyas
 Request received: GET /joyas
 Request received: GET /joyas
 Request received: GET /joyas
+Request received: GET /joyas
+Request received: GET /joyas
+Request received: GET /favicon.ico
+Request received: GET /joyas
+Request received: GET /joyas
+Request received: GET /joyas
+Request received: GET /joyas
+Request received: GET /joyas
+Request received: GET /joyas
+Request received: GET /joyas
+Request received: GET /joyas
+Request received: GET /joyas
+Request received: GET /joyas

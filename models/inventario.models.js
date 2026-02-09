@@ -70,17 +70,18 @@ const getFilteredJoyas = async ({
 };
 
 const prepareHATEOAS = (joyas) => {
-  const results = joyas
-    .map((item) => {
-      return {
-        name: item.nombre,
-        href: `http://localhost:3001/joyas/${item.id}`,
-      };
-    })
-    .slice(0, 3);
+  const results = joyas.map((item) => {
+    return {
+      name: item.nombre,
+      href: `http://localhost:3001/joyas/${item.id}`,
+    };
+  });
+  //.slice(0, 3);  //para limitar desde la función (en caso de tener una cantidad de entradas grande, en este caso será omitido para controlar con limits en query)
   const total = joyas.length;
+  const totalStock = joyas.reduce((sum, item) => sum + item.stock, 0 )
   const HATEOAS = {
     total,
+    totalStock,
     results,
   };
   return HATEOAS;

@@ -53,27 +53,31 @@ INSERT INTO inventario values
 npm run dev
 ```
 
-Para ingresar datos en el formulario e ingresarlos al apretar el botón agregar o al ingresarlos por medio de un api tester.
+Para consultar datos por medio de un api tester:
 
-dependiendo de la ruta, se pueden alterar uno más datos:
-/posts/single/:id  (solo un campo por ejecución)
-/posts/multi/:id (varios vía query -> (req.query))
-/posts/todos/:id (varios vía body -> (req.body))
+Rutas: 
+http://localhost:3001/joyas
+http://localhost:3001/joyas/filtros
 
-datos a ingresar vía api tester:
+Consultas:
+
+(EJEMPLOS)
+
+http://localhost:3001/joyas?limits=4&order_by=id_ASC&page=1 
+(Para ver la primera página de una consulta limitada a 4 elementos ordenadsa por id ascendente, página 1)
+http://localhost:3001/joyas/filtros?precio_max=300000
+(Ver joyas cuyo precio sea 30000 como máximo)
+
+Posibles filtros :
 {
-- titulo: (texto)
-- img: (url de imagen)
-- descripcion: (texto)
-- likes: (numero)
+?precio_max=<numero>
+?precio_min=<numero>
+?categoria=<tipo de joya>
+?metal=<oro o plata>
 }
 
-\* Puedes encontrar url de imágenes de dominio público en [Unsplash](https://unsplash.com/). Copia el link y pégalo en el formulario.
+\* Para revisar si la aplicación está funcionando vía browser:
 
-\*Esta aplicación tiene algunos métodos que solo están implementados en el backend. La interfaz será modificada para conseguir incorporarlos a la brevedad.
-
-Una vez levantado el servidor, para visualizar la información del serivdor en el browser, ingresar a:
-
-http://localhost:3000 ó http://localhost:3000/posts
+http://localhost:3001 ó http://localhost:3001/joyas
 
 Pablo E. Díaz. A.

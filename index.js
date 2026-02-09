@@ -6,12 +6,12 @@ import router from "./routes/inventario.routes.js";
 import { getDate } from "./database/database.js";
 import fs from "node:fs/promises";
 
-export const reqRegister = async (req, res, next) => {
+const reqRegister = async (req, res, next) => {
   try {
     const method = req.method;
     const path = req.path;
     const register = `Request received: ${method} ${path}`;
-    await fs.appendFile("log.txt", register, "\n");
+    await fs.appendFile("log.txt", register + "\n");
     next();
   } catch (error) {
     next(error);

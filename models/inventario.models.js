@@ -38,19 +38,26 @@ const getFilteredJoyas = async ({
   categoria,
   metal,
 }) => {
-  let filtros = [];
-  let values = [];
   try {
+    let filtros = [];
+    let values = [];
     const addFilter = (campo, comparador, valor) => {
       values.push(valor);
       const { length } = filtros;
       filtros.push(`${campo} ${comparador} $${length + 1}`);
-
-      if (precio_max) addFilter("precio", "<=", precio_max);
-      if (precio_min) addFilter("precio", ">=", precio_min);
-      if (categoria) addFilter("categoria", "=", categoria);
-      if (metal) addFilter("metal", "=", metal);
     };
+
+    
+    if (precio_max) addFilter("precio", "<=", precio_max);
+    if (precio_min) addFilter("precio", ">=", precio_min);
+    if (categoria) addFilter("categoria", "=", categoria);
+    if (metal) addFilter("metal", "=", metal);
+
+    let consulta = "SELECT * from inventario";
+    if (filtros.length > 0) {
+      filtros = filtros.join(" AND ");
+      consulta += ` WHERE ${filtros}`;
+    }
 
     const { rows: joyas } = await pool.query(consulta, values);
     return joyas;
@@ -78,13 +85,10 @@ const prepareHATEOAS = (joyas) => {
   return HATEOAS;
 };
 
-
-
-
 const inventarioModel = {
   getAllJoyasLimit,
   getFilteredJoyas,
   prepareHATEOAS,
 };
 
-export default inventarioModel
+export default inventarioModel;

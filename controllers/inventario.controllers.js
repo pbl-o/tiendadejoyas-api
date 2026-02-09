@@ -8,6 +8,7 @@ const readAllLimit = async (req,res) =>{
         if(!joyas){
             return res.status(404).json({message: 'Requeste Element(s) Not Found'})
         }
+        return res.status(200).json(joyas)
     } catch (error) {
         return res.status(500).json({message: error.message})
     }
@@ -22,6 +23,7 @@ try {
         if(!joyas){
             return res.status(404).json({message: 'Requested element(s) Not Found'})
         }
+        return res.status(200).json(joyas)
     } catch (error) {
         return res.status(500).json({message: error.message})
     }

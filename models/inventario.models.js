@@ -24,11 +24,11 @@ const getAllJoyasLimit = async ({
     const { rows: joyas } = await pool.query(queryFormat);
 
     if (joyas.length === 0) {
-      throw new Error({ message: error.message });
+      throw new Error("No Elements Found");
     }
     return joyas;
   } catch (error) {
-    throw new Error({ message: error.message });
+    throw error;
   }
 };
 
@@ -47,11 +47,14 @@ const getFilteredJoyas = async ({
       filtros.push(`${campo} ${comparador} $${length + 1}`);
     };
 
-    
     if (precio_max) addFilter("precio", "<=", precio_max);
     if (precio_min) addFilter("precio", ">=", precio_min);
     if (categoria) addFilter("categoria", "=", categoria);
     if (metal) addFilter("metal", "=", metal);
+
+    if (values.length === 0) {
+      throw new Error("No filters found");
+    }
 
     let consulta = "SELECT * from inventario";
     if (filtros.length > 0) {
@@ -62,9 +65,7 @@ const getFilteredJoyas = async ({
     const { rows: joyas } = await pool.query(consulta, values);
     return joyas;
   } catch (error) {
-    throw new Error({
-      message: error.message,
-    });
+    throw error;
   }
 };
 

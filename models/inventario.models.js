@@ -5,7 +5,7 @@ import format from "pg-format";
 import { pool } from "../database/database.js";
 
 const getAllJoyasLimit = async ({
-  limits = 3,
+  limits = 6,
   order_by = "id_ASC",
   page = 0,
 }) => {
@@ -73,10 +73,10 @@ const prepareHATEOAS = (joyas) => {
   const results = joyas.map((item) => {
     return {
       name: item.nombre,
-      href: `http://localhost:3001/joyas/${item.id}`,
+      href: `http://localhost:${process.env.API_PORT}/joyas/${item.id}`,
     };
-  });
-  //.slice(0, 3);  //para limitar desde la función (en caso de tener una cantidad de entradas grande, en este caso será omitido para controlar con limits en query)
+  })
+  //.slice(0, joyas.length);  
   const total = joyas.length;
   const totalStock = joyas.reduce((sum, item) => sum + item.stock, 0 )
   const HATEOAS = {

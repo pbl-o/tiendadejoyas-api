@@ -19,7 +19,7 @@ const reqRegister = async (req, res, next) => {
 };
 
 const app = express();
-const PORT = process.env.API_PORT || 3001;
+const PORT = process.env.API_PORT || 3000;
 
 app.use(express.json());
 app.use(cors());

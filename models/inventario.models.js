@@ -76,7 +76,7 @@ const prepareHATEOAS = (joyas) => {
       href: `http://localhost:${process.env.API_PORT}/joyas/${item.id}`,
     };
   })
-  //.slice(0, joyas.length);  
+  //.slice(0, 3);   //para controlar cantidad de vistas via HEATEOAS   
   const total = joyas.length;
   const totalStock = joyas.reduce((sum, item) => sum + item.stock, 0 )
   const HATEOAS = {

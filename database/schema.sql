@@ -1,4 +1,4 @@
--- Active: 1769730037726@@127.0.0.1@5432@joyas
+
 CREATE DATABASE joyas;
 DROP DATABASE joyas;
 -- Acceso a la base de datos en la terminal psql:

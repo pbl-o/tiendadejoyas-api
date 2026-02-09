@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
-import router from "./routes/inventario.routes";
-import { getDate } from "./database/database";
+import router from "./routes/inventario.routes.js";
+import { getDate } from "./database/database.js";
 import fs from "node:fs/promises";
 
 export const reqRegister = async (req, res, next) => {

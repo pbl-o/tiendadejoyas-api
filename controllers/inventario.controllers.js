@@ -1,4 +1,4 @@
-import inventarioModel from "../models/inventario.models";
+import inventarioModel from "../models/inventario.models.js";
 
 const readAllLimit = async (req,res) =>{
     const queryStrings = req.query

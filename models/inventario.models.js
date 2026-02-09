@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.cdonfig();
+dotenv.config();
 import format from "pg-format";
 
 import { pool } from "../database/database.js";
